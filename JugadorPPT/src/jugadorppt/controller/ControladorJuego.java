@@ -18,7 +18,7 @@ public class ControladorJuego {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Por favor ingrese su nombre: ");
+        System.out.print("Por favor ingrese su nombre:  ");
         String nombre = sc.next();
         Jugador jugador = new Jugador(nombre);
 
