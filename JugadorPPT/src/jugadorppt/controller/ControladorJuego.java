@@ -13,6 +13,12 @@ import jugadorppt.elemts.Jugador;
  * @author andres
  */
 public class ControladorJuego {
+    
+    Jugador jugador;
+    
+    public ControladorJuego(String nombre){
+        this.jugador = new Jugador(nombre);
+    }
 
     public static void main(String[] args) {
 
