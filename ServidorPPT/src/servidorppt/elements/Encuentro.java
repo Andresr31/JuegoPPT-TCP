@@ -107,15 +107,21 @@ public class Encuentro extends Thread {
         Jugador jugadorB;
         
         if(Integer.parseInt(this.opcionJ1.split("::")[0])==this.jugador1.getIden()){
+            System.out.println("Empezo jugador 1");
             OjugadorA = this.opcionJ1.split("::")[2];
             OjugadorB = this.opcionJ2.split("::")[2];
             jugadorA = this.jugador1;
             jugadorB = this.jugador2;
         }else{
+            System.out.println("Empezo jugador 2");
             OjugadorA = this.opcionJ2.split("::")[2];
             OjugadorB = this.opcionJ1.split("::")[2];
             jugadorA = this.jugador2;
             jugadorB = this.jugador1;
+            System.out.println("<<<<<<<<<<<<<<Jugador A "+jugadorA.getUserName());
+            System.out.println("<<<<<<<<<<<<<<Jugador B "+jugadorB.getUserName());
+            System.out.println("<<<<<<<<<<<<<<Opcion A "+OjugadorA);
+            System.out.println("<<<<<<<<<<<<<<Opcion B "+OjugadorB);
         }
         
         if(OjugadorA.equals("PIEDRA")&&OjugadorB.equals("PIEDRA")){
