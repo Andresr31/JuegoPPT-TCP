@@ -6,6 +6,8 @@
 package jugadorppt.controller;
 
 import java.util.Scanner;
+import jugadorppt.GUI.Login;
+import jugadorppt.GUI.Menu;
 import jugadorppt.elemts.Jugador;
 
 /**
@@ -22,6 +24,10 @@ public class ControladorJuego {
 
     public static void main(String[] args) {
 
+        Menu menu = new Menu();
+        Login login = new Login(menu, true, menu);
+        login.setVisible(true);
+        
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Por favor ingrese su nombre:  ");
