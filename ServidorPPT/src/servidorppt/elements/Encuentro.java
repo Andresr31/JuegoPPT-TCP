@@ -99,30 +99,12 @@ public class Encuentro extends Thread {
     }
     
     public void play(){
-        //System.out.println("Que pasó amiguito");
-        String OjugadorA;
-        String OjugadorB;
+        String OjugadorA = this.opcionJ1.split("::")[2];
+        String OjugadorB = this.opcionJ2.split("::")[2];
         
-        Jugador jugadorA;
-        Jugador jugadorB;
-        
-        if(Integer.parseInt(this.opcionJ1.split("::")[0])==this.jugador1.getIden()){
-            System.out.println("Empezo jugador 1");
-            OjugadorA = this.opcionJ1.split("::")[2];
-            OjugadorB = this.opcionJ2.split("::")[2];
-            jugadorA = this.jugador1;
-            jugadorB = this.jugador2;
-        }else{
-            System.out.println("Empezo jugador 2");
-            OjugadorA = this.opcionJ2.split("::")[2];
-            OjugadorB = this.opcionJ1.split("::")[2];
-            jugadorA = this.jugador2;
-            jugadorB = this.jugador1;
-            System.out.println("<<<<<<<<<<<<<<Jugador A "+jugadorA.getUserName());
-            System.out.println("<<<<<<<<<<<<<<Jugador B "+jugadorB.getUserName());
-            System.out.println("<<<<<<<<<<<<<<Opcion A "+OjugadorA);
-            System.out.println("<<<<<<<<<<<<<<Opcion B "+OjugadorB);
-        }
+        Jugador jugadorA = this.buscarJugador(Integer.parseInt(this.opcionJ1.split("::")[0]));
+        Jugador jugadorB = this.buscarJugador(Integer.parseInt(this.opcionJ2.split("::")[0]));
+       
         
         if(OjugadorA.equals("PIEDRA")&&OjugadorB.equals("PIEDRA")){
           jugadorA.enviarMensaje("RESULTADO::EMPATE");
@@ -182,6 +164,17 @@ public class Encuentro extends Thread {
         int[] ids = {this.jugador1.getIden(), this.jugador2.getIden()};
         return ids;
     
+    }
+    
+    public Jugador buscarJugador(int id)
+    {
+        if(this.jugador1.getIden() == id){
+            return jugador1;
+        }
+        if(this.jugador2.getIden() == id){
+            return jugador2;
+        }
+        return null;
     }
 
 }
