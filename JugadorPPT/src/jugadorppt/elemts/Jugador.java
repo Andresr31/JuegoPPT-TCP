@@ -20,7 +20,7 @@ public class Jugador {
     public Jugador(String userName) {
         
         this.userName = userName;
-        this.red = new RedJugador(4400, "127.0.0.1", this.userName);
+        this.red = new RedJugador(4400, "192.168.137.1", this.userName);
         
     }
 
