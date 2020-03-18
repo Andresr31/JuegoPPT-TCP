@@ -5,6 +5,10 @@
  */
 package jugadorppt.main;
 
+import jugadorppt.GUI.Intro;
+import jugadorppt.GUI.Menu;
+import jugadorppt.audio.Efectos;
+
 /**
  *
  * @author andres
@@ -12,6 +16,10 @@ package jugadorppt.main;
 public class Main {
     
     public static void main(String[] args) {
+        Efectos efectos = new Efectos();
+        Menu menu = new Menu(efectos);
+        Intro intro = new Intro(menu, true,menu);
+        intro.setVisible(true);
         
     }
     
