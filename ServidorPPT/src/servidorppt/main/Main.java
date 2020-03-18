@@ -5,6 +5,7 @@
  */
 package servidorppt.main;
 
+import servidorppt.GUI.MainGUI;
 import servidorppt.elements.JuegoPPT;
 
 /**
@@ -13,11 +14,10 @@ import servidorppt.elements.JuegoPPT;
  */
 public class Main {
     
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) {        
         JuegoPPT juego = new JuegoPPT();
-        
-        juego.iniciar();
+        MainGUI mainGUI = new MainGUI(juego);
+        mainGUI.setVisible(true);
     }
     
 }
