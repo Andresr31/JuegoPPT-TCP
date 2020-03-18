@@ -5,6 +5,7 @@
  */
 package jugadorppt.GUI;
 
+import jugadorppt.audio.Efectos;
 import jugadorppt.elemts.Jugador;
 
 /**
@@ -17,14 +18,16 @@ public class Juego extends javax.swing.JFrame {
     private Jugador jugador;
     private Menu menu;
     private String rival;
+    private Efectos efectos;
 
     /**
      * Creates new form Juego
      */
-    public Juego(Menu m) {
+    public Juego(Menu m, Efectos e) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.menu = m;
+        this.efectos = e;
     }
 
     public void setJugador(Jugador jugador) {
@@ -56,7 +59,6 @@ public class Juego extends javax.swing.JFrame {
         btnPiedra = new javax.swing.JButton();
         btnPapel = new javax.swing.JButton();
         btnTijeras = new javax.swing.JButton();
-        btnAtras = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLNombreRival = new javax.swing.JLabel();
 
@@ -112,15 +114,6 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
-        btnAtras.setBackground(new java.awt.Color(0, 0, 0));
-        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jugadorppt/images/atras.png"))); // NOI18N
-        btnAtras.setToolTipText("");
-        btnAtras.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAtrasMouseClicked(evt);
-            }
-        });
-
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jugadorppt/images/salir.png"))); // NOI18N
         btnSalir.setToolTipText("");
@@ -140,11 +133,6 @@ public class Juego extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(btnAtras)
-                        .addGap(78, 78, 78)
-                        .addComponent(btnSalir))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,9 +143,12 @@ public class Juego extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(126, 126, 126)
-                            .addComponent(btnPiedra)
-                            .addGap(58, 58, 58)
-                            .addComponent(btnPapel)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnSalir)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnPiedra)
+                                    .addGap(58, 58, 58)
+                                    .addComponent(btnPapel)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnTijeras))))
                 .addContainerGap(119, Short.MAX_VALUE))
@@ -182,11 +173,9 @@ public class Juego extends javax.swing.JFrame {
                     .addComponent(btnPiedra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPapel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTijeras, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAtras)
-                    .addComponent(btnSalir))
-                .addGap(22, 22, 22))
+                .addGap(18, 18, 18)
+                .addComponent(btnSalir)
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,26 +203,25 @@ public class Juego extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnTijerasActionPerformed
 
-    private void btnAtrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseClicked
-        
-        
-    }//GEN-LAST:event_btnAtrasMouseClicked
-
     private void btnTijerasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTijerasMouseClicked
         
         String result = this.jugador.jugar("TIJERA");
+        this.determinarAccion(result);
         System.out.println(result);
     }//GEN-LAST:event_btnTijerasMouseClicked
 
     private void btnPapelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPapelMouseClicked
        
         String result = this.jugador.jugar("PAPEL");
+        
+        this.determinarAccion(result);
         System.out.println(result);
         
     }//GEN-LAST:event_btnPapelMouseClicked
 
     private void btnPiedraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPiedraMouseClicked
         String result = this.jugador.jugar("PIEDRA");
+        this.determinarAccion(result);
         System.out.println(result);
         
         
@@ -241,12 +229,41 @@ public class Juego extends javax.swing.JFrame {
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         
-        
-        
+        this.setVisible(false);
+        this.menu.setVisible(true);
     }//GEN-LAST:event_btnSalirMouseClicked
 
+    public void determinarAccion(String result){
+        
+        switch (result.split("::")[1]) {
+            case "GANAR":
+                
+                this.efectos.reproducirSonidoGanar();
+                this.efectos.detenerSonidoFondo();
+                PartidaGanada partidaG = new PartidaGanada(this, true,this,this.menu,this.efectos);
+                this.setVisible(false);
+                partidaG.setVisible(true);
+                break;
+            case "PERDER":
+                
+                this.efectos.reproducirSonidoPerder();
+                this.efectos.detenerSonidoFondo();
+                PartidaPerdida partidaP = new PartidaPerdida(this, true,this,this.menu,this.efectos);
+                this.setVisible(false);
+                partidaP.setVisible(true);
+                break;
+            case "EMPATE":
+                PartidaEmpatada partidaE = new PartidaEmpatada(this, true,this,this.menu,this.efectos);
+                this.setVisible(false);
+                partidaE.setVisible(true);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnPapel;
     private javax.swing.JButton btnPiedra;
     private javax.swing.JButton btnSalir;

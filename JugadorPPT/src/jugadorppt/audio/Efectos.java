@@ -16,6 +16,8 @@ public class Efectos {
     
     private AudioClip sonidoIntro;
     private AudioClip sonidoFondo;
+    private AudioClip sonidoGanar;
+    private AudioClip sonidoPerder;
 
      
     
@@ -24,6 +26,8 @@ public class Efectos {
         
         sonidoIntro = java.applet.Applet.newAudioClip(getClass().getResource("/jugadorppt/audio/intro.wav"));
         sonidoFondo = java.applet.Applet.newAudioClip(getClass().getResource("/jugadorppt/audio/fondo.wav"));
+        sonidoGanar = java.applet.Applet.newAudioClip(getClass().getResource("/jugadorppt/audio/ganar.wav"));
+        sonidoPerder = java.applet.Applet.newAudioClip(getClass().getResource("/jugadorppt/audio/perder.wav"));
         
     }
     
@@ -45,8 +49,8 @@ public class Efectos {
     
      public void reproducirSonidoFondo()
     {
-        //sonidoFondo.play();}
-        sonidoFondo.loop();
+        sonidoFondo.play();
+        //sonidoFondo.loop();
     }
     
     public void detenerSonidoFondo()
@@ -56,6 +60,33 @@ public class Efectos {
     }
     
     ////////////////////////////////////////////////////////////////////////////
+    
+    public void reproducirSonidoGanar()
+    {
+        sonidoGanar.play();
+        //sonidoGanar.loop();
+    }
+    
+    public void detenerSonidoGanar()
+    {
+        sonidoGanar.stop();
+        //sonidoFondo.loop();
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    
+    public void reproducirSonidoPerder()
+    {
+        sonidoPerder.play();
+        //sonidoPerder.loop();
+    }
+    
+    public void detenerSonidoPerde()
+    {
+        sonidoPerder.stop();
+        //sonidoFondo.loop();
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
    
-
 }

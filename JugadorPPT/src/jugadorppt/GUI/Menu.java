@@ -191,7 +191,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnJugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnJugarMouseClicked
 
-        Juego juego = new Juego(this);
+        Juego juego = new Juego(this, this.efecto);
         this.setVisible(false);
         Espera espera = new Espera(this, true,juego,this.jugador);
        
