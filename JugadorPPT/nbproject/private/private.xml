@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/Intro.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/Login.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/Menu.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/PartidaGanada.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/main/Main.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/controller/ControladorJuego.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/Juego.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/PartidaEmpatada.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/audio/Efectos.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/Espera.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/elemts/Jugador.java</file>
-            <file>file:/D:/UNIVERSIDAD/VII%20SEMESTRE/Sistemas%20distribuidos/Talleres/Juego%20PPT/JugadorPPT/src/jugadorppt/GUI/PartidaPerdida.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

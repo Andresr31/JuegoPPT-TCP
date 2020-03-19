@@ -5,7 +5,6 @@
  */
 package servidorppt.main;
 
-import servidorppt.GUI.MainGUI;
 import servidorppt.elements.JuegoPPT;
 
 /**
@@ -16,7 +15,7 @@ public class Main {
     
     public static void main(String[] args) {        
         JuegoPPT juego = new JuegoPPT();
-        MainGUI mainGUI = new MainGUI(juego);
+        servidorppt.GUI.MainGUI mainGUI = new servidorppt.GUI.MainGUI(juego);
     }
     
 }
