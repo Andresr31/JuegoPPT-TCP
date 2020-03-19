@@ -18,7 +18,7 @@ public class Menu extends javax.swing.JFrame {
     private Efectos efecto;
     
     /**
-     * Creates new form Index2
+     * Creates new form Menu
      */
     public Menu(Efectos e) {
         

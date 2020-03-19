@@ -48,8 +48,10 @@ public class RedServidor {
         try {
             this.listenSocket = new ServerSocket(this.port);
             System.out.println("SERVIDOR ENCENDIDO");
+            this.servidor.mensajes += "SERVIDOR ENCENDIDO" + "\n";
         } catch (IOException ex) {
             System.out.println("Error al iniciar " + ex.getMessage());
+            this.servidor.mensajes += "Error al iniciar" + ex.getMessage() + "\n";
         }
     }
 
@@ -57,16 +59,19 @@ public class RedServidor {
     public void procesar() {
         try {
             while (true) {
+                servidor.mensajes += "SERVER: Esperando jugador nuevo" + "\n";
                 System.out.println("SERVER: Esperando jugador nuevo");
 
                 Socket clientSocket = listenSocket.accept();
 
+                servidor.mensajes += "SERVER: cliente recibido" + "\n";
                 System.out.println("SERVER: cliente recibido");
                 
                 this.servidor.agregarJugador(clientSocket);
 
             }
-        } catch (IOException e) {
+        } catch (IOException e) {               
+            servidor.mensajes += "Error connecting a client: " + e.getMessage() + "\n";
             System.out.println("Error connecting a client: " + e.getMessage());
         }
     }

@@ -17,7 +17,6 @@ public class Main {
     public static void main(String[] args) {        
         JuegoPPT juego = new JuegoPPT();
         MainGUI mainGUI = new MainGUI(juego);
-        mainGUI.setVisible(true);
     }
     
 }

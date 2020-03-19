@@ -13,18 +13,21 @@ import servidorppt.elements.JuegoPPT;
  */
 public class MainGUI extends javax.swing.JFrame {
 
-    JuegoPPT juego;
+    public JuegoPPT juego;
     
     /**
-     * Creates new form Main
+     * Creates new form MainGUI
      */
     public MainGUI(JuegoPPT j) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.juego = j;
+        this.setVisible(true);
+        txtaMensajes.setText(juego.getServidor().mensajes);
         this.juego.iniciar();
-        txtaMensajes.setText("SERVIDOR ENCENDIDO");
     }
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,6 +107,8 @@ public class MainGUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel jLabel1;

@@ -62,6 +62,8 @@ public class JuegoPPT {
         }
         
     }
-    
-    
+
+    public Servidor getServidor() {
+        return servidor;
+    }
 }
